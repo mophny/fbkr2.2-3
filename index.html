@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Главная</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <div class="page-container">
+        <header>
+            <p>Луняков Михаил Игоревич</p>
+        </header>
+        <nav class="nav" aria-label="Основная навигация">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/projects.html">Проекты</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/diary.html">Дневник</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <main id="main" class="content">
+            <article class="profile-header">
+                <picture>
+                    <source type="image/webp" srcset="images/sigmochka.webp">
+                    <img class="profile-photo" src="images/sigmochka.jpg" width="220" height="280" loading="lazy"
+                        alt="Фото автора">
+                </picture>
+
+                <div class="profile-info">
+                    <p class="profile-description">Привет! Я студент группы ЭФБО-04-24. Увлекаюсь веб-разработкой</p>
+                    <a href="assets/1111.pdf" download="resume.pdf">Скачать резюме</a>
+                </div>
+            </article>
+
+            <section class="skills-section">
+                <h2 class="section-title">Мои навыки</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Golang</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">C#</span>
+                            <span class="skill-percent">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects-section">
+                <h2 class="section-title">Лучшие проекты</h2>
+                <div class="projects-grid">
+                    <article class="projects-card">
+                        <a href="https://github.com/mophny/fbkr1 " target="_blank">
+                            <div class="projects-image-container">
+                                <img src="images/image33.png" alt="Личный сайт" class="projects-image" width="300"
+                                    height="180" loading="lazy">
+                            </div>
+                            <h3 class="projects-title">Личный сайт</h3>
+                            <p class="projects-description">Был создан в рамках 1 контрольной работы</p>
+                        </a>
+                    </article>
+                    <article class="projects-card">
+                        <a href="https://github.com/mophny/fbkr2.1" target="_blank">
+                            <div class="projects-image-container">
+                                <img src="images/52.png" alt="Личный сайт" class="projects-image" width="300"
+                                    height="180" loading="lazy">
+                            </div>
+                            <h3 class="projects-title">Портфолио</h3>
+                            <p class="projects-description">Было создано в рамках 2 контрольной работы</p>
+                        </a>
+                    </article>
+                    <article class="projects-card">
+                        <a href="https://github.com/yandex-market/yandex-market-partner-api" target="_blank">
+                            <div class="projects-image-container">
+                                <img src="images/999.jpg" alt="Личный сайт" class="projects-image" width="300"
+                                    height="180" loading="lazy">
+                            </div>
+                            <h3 class="projects-title">Интернет-магазин</h3>
+                            <p class="projects-description">Сделан мною</p>
+                        </a>
+                    </article>
+                </div>
+            </section>
+            <section class="objectfit-section section">
+                <h2 class="section-title">Object-fit примеры</h2>
+                <div class="objectfit-grid">
+                    <div>
+                        <img src="images/cat.jpg" class="obj-cover" alt="cover">
+                        <p>object-fit: cover</p>
+                    </div>
+                    <div>
+                        <img src="images/cat.jpg" class="obj-contain" alt="contain">
+                        <p>object-fit: contain</p>
+                    </div>
+                    <div>
+                        <img src="images/cat.jpg" class="obj-fill" alt="fill">
+                        <p>object-fit: fill</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="gallery" class="gallery-section section">
+                <h2 class="section-title">Галерея</h2>
+                <div class="gallery-grid">
+                    <img src="images/cat.jpg" class="gallery-img" loading="lazy">
+                    <img src="images/priroda.jpg" class="gallery-img" loading="lazy">
+                    <img src="images/dom.jpg" class="gallery-img" loading="lazy">
+                    <img src="images/sea.jpg" class="gallery-img" loading="lazy">
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>© 2025 Контакты</p>
+        </footer>
+    </div>
+</body>
+
+</html>

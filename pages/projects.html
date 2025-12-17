@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Проекты</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+        }
+
+        dialog {
+            border: none;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+            max-width: auto;
+            width: 30vw;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #000000 0%, #000000 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
+            margin: 0;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .modal-content {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6e04f8 0%, #010507 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border: 2px solid #e9ecef;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            dialog {
+                margin: 1rem;
+                width: calc(100vw - 2rem);
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <div class="page-container">
+        <header>
+            <p>Луняков Михаил Игоревич</p>
+        </header>
+        <nav class="nav" aria-label="Основная навигация">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="projects.html">Проекты</a></li>
+                <li class="nav-item"><a class="nav-link" href="diary.html">Дневник</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <main class="content" id="main">
+            <section class="project-section">
+                <h1>Мои проекты</h1>
+                <button type="button" class="btn btn-primary" data-fil="all">Все</button>
+                <button type="button" class="btn btn-primary" data-fil="HTML">HTML</button>
+                <button type="button" class="btn btn-primary" data-fil="CSS">CSS</button>
+                <button type="button" class="btn btn-primary" data-fil="Bootstrap">Bootstrap</button>
+                <button type="button" class="btn btn-primary" data-fil="JavaScript">JavaScript</button>
+                <button type="button" class="btn btn-primary" data-fil="C#">C#</button>
+                <button type="button" class="btn btn-primary" data-fil="Golang">Golang</button>
+                <div class="project-grid">
+                    <article class="project-card" data-tag="HTML,CSS" onclick="contactModal.showModal()">
+                        <div class="project-image-container">
+                            <img class="project-image" src="../images/image33.png" alt="Личный сайт">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-name">Личный сайт</h3>
+                            <p class="project-description">Был создан в рамках 1 контрольной работы</p>
+                        </div>
+                    </article>
+                    <article class="project-card" data-tag="JavaScript" onclick="contactModal3.showModal()">
+                        <div class="project-image-container">
+                            <img class="project-image" src="../images/999.jpg" alt="Интернет-магазин">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-name">Интернет-магазин</h3>
+                            <p class="project-description">Сделан мною</p>
+                        </div>
+                    </article>
+                    <article class="project-card" data-tag="Golang" onclick="contactModal4.showModal()">
+                        <div class="project-image-container">
+                            <img class="project-image" src="../images/doc.svg" alt="Портфолио">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-name">Docker</h3>
+                            <p class="project-description">Был одним из разработчиков</p>
+                        </div>
+                    </article>
+                    <article class="project-card" data-tag="Bootstrap" onclick="contactModal2.showModal()">
+                        <div class="project-image-container">
+                            <img class="project-image" src="../images/52.png" alt="Портфолио">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-name">Портфолио</h3>
+                            <p class="project-description">Было создано в рамках 2 контрольной работы</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>© 2025 Контакты</p>
+        </footer>
+        <dialog id="contactModal">
+            <div class="modal-header">
+                <h2>Личный сайт</h2>
+            </div>
+
+            <div class="modal-content">
+                <form id="feedbackForm" method="dialog">
+                    <div class="">
+                        <h2>Был разработан сайт в рамках 1 контрольной работы. В нем вы найдете информацию обо мне, моих
+                            навыках, и т.д.</h2>
+                        <h2>Скриншоты:</h2>
+                        <img class="project-image img-fluid rounded-circle" src="../images/141.png" alt="Скриншот личного сайта"
+                            style="width: 200px; height: 200px; object-fit: cover;">
+                        <img class="project-image img-fluid rounded-circle" src="../images/142.png" alt="Скриншот товаров" 
+                            style="width: 200px; height: 200px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <a href="https://mophny.github.io/fbkr1/" target="_blank">
+                            <button type="button" class="btn btn-primary">Живая версия</button>
+                        </a>
+                        <a href="https://github.com/mophny/fbkr1 " target="_blank">
+                            <button type="button" class="btn btn-primary">Исходный код</button>
+                        </a>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-primary" onclick="contactModal.close()">Закрыть</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        <dialog id="contactModal2">
+            <div class="modal-header">
+                <h2>Портфолио</h2>
+            </div>
+
+            <div class="modal-content">
+                <form id="feedbackForm" method="dialog">
+                    <div class="">
+                        <h2>Было разработано портфолио в рамках 2 контрольной работы с ипользованием bootstrap. В нем вы
+                            найдете измененную главную страницу и страницу товаров.</h2>
+                        <h2>Скриншоты:</h2>
+                        <img class="project-image img-fluid rounded-circle" src="../images/92.png" alt="Скриншот главной страницы"
+                             style="width: 200px; height: 200px; object-fit: cover;">
+                        <img class="project-image img-fluid rounded-circle" src="../images/93.png" alt="Скриншот товаров bootstrap"
+                             style="width: 200px; height: 200px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <a href="https://mophny.github.io/fbkr2.1/" target="_blank">
+                            <button type="button" class="btn btn-primary">Живая версия</button>
+                        </a>
+                        <a href="https://github.com/mophny/fbkr2.1" target="_blank">
+                            <button type="button" class="btn btn-primary">Исходный код</button>
+                        </a>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-primary" onclick="contactModal2.close()">Закрыть</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        <dialog id="contactModal3">
+            <div class="modal-header">
+                <h2>Интернет-магазин</h2>
+            </div>
+
+            <div class="modal-content">
+                <form id="feedbackForm" method="dialog">
+                    <div class="">
+                        <h2>Был разработан мною в течение нескольких лет.</h2>
+                        <h2>Скриншоты:</h2>
+                        <img class="project-image img-fluid rounded-circle" src="../images/1000-7.jpg" alt="Скриншот главной страницы"
+                             style="width: 200px; height: 200px; object-fit: cover;">
+                        <img class="project-image img-fluid rounded-circle" src="../images/993.jpg" alt="Скриншот товаров bootstrap"
+                             style="width: 200px; height: 200px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <a href="https://market.yandex.ru/" target="_blank">
+                            <button type="button" class="btn btn-primary">Живая версия</button>
+                        </a>
+                        <a href="https://github.com/yandex-market/yandex-market-partner-api" target="_blank">
+                            <button type="button" class="btn btn-primary">Исходный код</button>
+                        </a>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-primary" onclick="contactModal3.close()">Закрыть</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        <dialog id="contactModal4">
+            <div class="modal-header">
+                <h2>Docker</h2>
+            </div>
+
+            <div class="modal-content">
+                <form id="feedbackForm" method="dialog">
+                    <div class="">
+                        <h2>Был одним из разработчиков данного проекта</h2>
+                        <h2>Скриншоты:</h2>
+                        <img class="project-image img-fluid rounded-circle" src="../images/docker-dashboard.png" alt="Скриншот главной страницы"
+                             style="width: 200px; height: 200px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <a href="https://www.docker.com/" target="_blank">
+                            <button type="button" class="btn btn-primary">Живая версия</button>
+                        </a>
+                        <a href="https://github.com/docker" target="_blank">
+                            <button type="button" class="btn btn-primary">Исходный код</button>
+                        </a>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-primary" onclick="contactModal4.close()">Закрыть</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.btn-primary[data-fil]');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const filterValue = this.getAttribute('data-fil').toLowerCase();
+                    projectCards.forEach(card => {
+                        const tags = card.getAttribute('data-tag').toLowerCase();
+                        if (filterValue === 'all' || tags.includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
